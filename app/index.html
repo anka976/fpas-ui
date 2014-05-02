@@ -23,7 +23,7 @@
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container"  ng-controller="HeadercontrollerCtrl">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -31,14 +31,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand navbar-left" href="#"><img class="menubar-logo" alt="FPAS" src="images/gvs_kn_anchor.gif"></a>
-          <a class="navbar-brand" href="#">FPAS UI</a>
+          <a class="navbar-brand navbar-left" href="/"><img class="menubar-logo" alt="FPAS" src="images/gvs_kn_anchor.gif"></a>
+          <a class="navbar-brand" href="/">FPAS UI</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="icon-home"></span>Home</a></li>
+            <li ng-class="{ active: isActive('/')}"><a href="/"><span class="icon-home"></span>Home</a></li>
             <li><a href="data">Data</a></li>
-            <li><a href="logsoverview">Logs overview</a></li>
+            <li ng-class="{ active: isActive('/logsoverview')}"><a href="logsoverview">Logs overview</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Billing <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -91,7 +91,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/main/controllers/main.js"></script>
         <script src="scripts/logsoverview/controllers/logsoverview.js"></script>
-        <script src="scripts/home/controllers/home.js"></script>
+        <script src="scripts/headercontroller/controllers/headercontroller.js"></script>
         <!-- endbuild -->
 </body>
 </html>
