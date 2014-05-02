@@ -1,0 +1,28 @@
+<p>This is the articleLookup view.</p>
+
+    <div  class="table-responsive">
+              
+          
+      <table  class="table table-striped table-bordered table-hover"> 
+        <thead>
+        <tr>
+          <th>Action</th>
+          <th>ID</th>
+          <th>Module</th>
+          <th>Denotation</th>
+          <th>Message type</th>
+          <th>Creation date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in logs">
+          <td></td>
+          <td>{{item.rowguid}}</td>
+          <td>{{item.module}}</td>
+          <td>{{item.denotation}}</td>
+          <td>{{item.messageType}}</td>
+          <td>{{item.creationDate}}</td>
+        </tr>
+        </tbody>
+      </table>
+        </div>
