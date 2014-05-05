@@ -16,6 +16,11 @@
     <!-- endbuild -->
     <link rel="stylesheet" href="styles/sticky-footer-navbar.css">
   </head>
+  <script type="text/javascript">
+        var pathArray = window.location.pathname.split('/');
+        pathArray.pop();
+        var BASE_URL = pathArray.join('/');
+    </script>
   <body ng-app="fpasUiApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

@@ -3,6 +3,6 @@
 angular.module('fpasUiApp')
   .controller('HeadercontrollerCtrl', function ($scope, $location) {
     $scope.isActive = function (viewLocation) { 
-        return viewLocation === $location.path();
+        return (BASE_URL + viewLocation) === $location.path();
     };
   });

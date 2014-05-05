@@ -8,22 +8,19 @@ angular
     'ngRoute', 'restangular', 'ui.bootstrap'
   ])
   .config(function ($routeProvider,$locationProvider) {
+
+    $locationProvider.html5Mode(true);
+
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+      .when(BASE_URL + '/', {
+        templateUrl: BASE_URL + '/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/logsoverview', {
-        templateUrl: 'logsOverview/views/logsoverview.html',
+      .when(BASE_URL + '/logsoverview', {
+        templateUrl: BASE_URL + '/logsOverview/views/logsoverview.html',
         controller: 'LogsoverviewCtrl'
       })
-      .when('/undefined', {
-        templateUrl: 'home/views/home.html',
-        controller: 'HomeCtrl'
-      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: BASE_URL + '/'
       });
-
-      $locationProvider.html5Mode(true);
   });
