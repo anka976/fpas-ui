@@ -3,3 +3,12 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+WEB-INF/
+static/bower_components/
+static/css/
+static/html/
+static/images/icons/
+static/js/
+static/images/widgets/
+static/images/knwebstd/
+*.jsp
