@@ -1,103 +1,198 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <link rel="stylesheet" href="styles/sticky-footer-navbar.css">
-  </head>
-  <script type="text/javascript">
-        var pathArray = window.location.pathname.split('/');
-        pathArray.pop();
-        var BASE_URL = pathArray.join('/');
-        var APP_NAME = pathArray[0];
-    </script>
-  <body ng-app="fpasUiApp">
-    <!--[if lt IE 7]>
+   <head>
+      <meta charset="utf-8">
+      <title>FPAS</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <!-- build:css styles/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <!-- endbower -->
+      <!-- endbuild -->
+      <!-- build:css({.tmp,app}) styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <!-- endbuild -->
+      <link rel="stylesheet" href="styles/sticky-footer-navbar.css">
+      <script type="text/javascript">
+         var pathArray = window.location.pathname.split('/');
+         pathArray.pop();
+         var BASE_URL = pathArray.join('/');
+         var APP_NAME = pathArray[1] ? pathArray[1] : pathArray[0];
+      </script>
+   </head>
+   <body ng-app="fpasUiApp">
+      <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container"  ng-controller="HeadercontrollerCtrl">
+      <![endif]-->
+      <!-- Fixed navbar -->
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-default navbar-static-top">
+      
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand navbar-left" href="/"><img class="menubar-logo" alt="FPAS" src="images/gvs_kn_anchor.gif"></a>
-          <a class="navbar-brand" href="/">FPAS UI</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ng-class="{ active: isActive('/')}"><a href="/"><span class="icon-home"></span>Home</a></li>
-            <li><a href="reportsOverview.do">Data</a></li>
-            <li ng-class="{ active: isActive('/logsoverview')}"><a href="logsoverview">Logs overview</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Billing <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">Consolidation</li>
-                <li><a href="">Consolidation overview</a></li>
-                <li><a href="">Consolidation generation</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Documents</li>
-                <li><a href="#">Documents overview</a></li>
-                <li><a href="#">Documents distribution</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+       <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand navbar-left" href="/"><img class="menubar-logo" alt="FPAS" src="images/gvs_kn_anchor.gif"></a>
+                        <a class="navbar-brand" href="/">FPAS</a>
+                     </div>
+                     <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                           <li ng-class="{ active: isActive('/')}"><a href="/"><span class="icon-home"></span>Home</a></li>
+                           <li><a target="_top" ng-href="{{getAppPathLocation('reportsOverview.do')}}">Data</a></li>
+                           <li ng-class="{ active: isActive('/logsoverview')}"><a href="logsoverview">Logs</a></li>
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Billing <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-header">Consolidation</li>
+                                 <li><a href="">Consolidation overview</a></li>
+                                 <li><a href="">Consolidation generation</a></li>
+                                 <li class="divider"></li>
+                                 <li class="dropdown-header">Documents</li>
+                                 <li><a href="#">Documents Overview</a></li>
+                                 <li><a href="#">Documents Distribution</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cost Variation<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="">Documents</a></li>
+                                 <li><a href="">Shipments</a></li>
+                                 <li class ="divider"></li>
+                                 <li class="dropdown-header">Cost Variation</li>
+                                 <li><a href="#">CV Overview</a></li>
+                                 <li><a href="#">CV Summaries</a></li>
+                                 <li><a href="#">CV Reporting</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manual Invoicing<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="">External Billing</a></li>
+                                 <li><a href="">Invoices Created</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Monitoring<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="">Invoice to XML</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attribute Management</a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">Dropdown Submenu Link 4.1</a></li>
+                                       <li><a href="#">Dropdown Submenu Link 4.2</a></li>
+                                       <li><a href="#">Dropdown Submenu Link 4.3</a></li>
+                                       <li><a href="#">Dropdown Submenu Link 4.4</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="">Users</a></li>
+                              </ul>
+                           </li>
+                           <li><a target="_top" ng-href="{{getAppPathLocation('faq.do')}}">Help</a></li>
+                        </ul>
+                     <!--/.nav-collapse -->
+                     </div>
+
     </div>
+  </div><!-- /container -->
+</div><!-- /navbar wrapper -->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
-
-    <footer>
-      <div class="footer container">
-        <p class="text-muted">Copyright © Kuehne + Nagel 2009-2014</p>
+ <!-- Carousel
+         ================================================== -->
+      <div id="myCarousel" class="carousel slide">
+      <!-- <div id="myCarousel" class="carousel slide hidden-xs"> -->
+         <!-- Indicators -->
+         <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="item active">
+               <img src="images/kn4.png" class="img-responsive"/>
+               <div class="container">
+          <!--         <div class="carousel-caption">
+                     <h1>Bootstrap 3 Carousel Layout</h1>
+                     <p></p>
+                     <p><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">Learn More</a>
+                     </p>
+                     </pthis>
+                  </div> -->
+               </div>
+            </div>
+            <div class="item">
+               <img src="images/kn2.png" class="img-responsive"/>
+               <!-- <div class="container">
+                  <div class="carousel-caption">
+                     <h1>Changes to the Grid</h1>
+                     <p>Bootstrap 3 still features a 12-column grid, but many of the CSS class names have completely changed.</p>
+                     <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+                  </div>
+               </div> -->
+            </div>
+            <div class="item">
+               <img src="images/kn1.png" class="img-responsive"/>
+              <!--  <div class="container">
+                  <div class="carousel-caption">
+                     <h1>Percentage-based sizing</h1>
+                     <p>With "mobile-first" there is now only one percentage-based grid.</p>
+                     <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
+                  </div>
+               </div> -->
+            </div>
+         </div>
+         <!-- Controls -->
+         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+         <span class="icon-prev"></span>
+         </a>
+         <a class="right carousel-control" href="#myCarousel" data-slide="next">
+         <span class="icon-next"></span>
+         </a>  
       </div>
-    </footer> 
+      <!-- /.carousel -->
+     
+      <!-- Add your site or application content here -->
+      <div class="container" ng-view=""></div>
+      <footer>
+         <div class="footer container">
 
-
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-    <script src="bower_components/restangular/dist/restangular.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/main/controllers/main.js"></script>
-        <script src="scripts/logsoverview/controllers/logsoverview.js"></script>
-        <script src="scripts/headercontroller/controllers/headercontroller.js"></script>
-        <!-- endbuild -->
-</body>
+            <p class="text-muted">Copyright © Kuehne + Nagel 2009-2014</p>
+         </div>
+      </footer>
+      <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+      <![endif]-->
+      <!-- build:js scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+      <script src="bower_components/restangular/dist/restangular.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+      <script src="scripts/controllers/main.js"></script>
+      <script src="scripts/main/controllers/main.js"></script>
+      <script src="scripts/logsoverview/controllers/logsoverview.js"></script>
+      <script src="scripts/headercontroller/controllers/headercontroller.js"></script>
+      <!-- endbuild -->
+   </body>
 </html>

@@ -5981,10 +5981,6 @@ input:focus {
 
 
 
-
-
-
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -6008,9 +6004,63 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body > .container {
+/*body > .container {
   padding: 60px 15px 0;
+}*/
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
 }
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  margin-top: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 20px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 150px;
+  background-color:#555;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 150px;
+}
+
+.carousel-indicators {
+    bottom: 50px;
+  }
+
+@media screen and (max-width: 768px) {
+  .carousel-indicators {
+    bottom: 50px;
+  }
+}
+
 .container .text-muted {
   margin: 20px 0;
 }
@@ -6023,4 +6073,51 @@ code {
     width: 31px;
     height: 30px;
     margin-top: -6px;
+}
+
+.dropdown-submenu {
+position:relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+top:0;
+left:100%;
+margin-top:-6px;
+margin-left:-1px;
+-webkit-border-radius:0 6px 6px 6px;
+-moz-border-radius:0 6px 6px;
+border-radius:0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+display:block;
+}
+
+.dropdown-submenu>a:after {
+display:block;
+content:" ";
+float:right;
+width:0;
+height:0;
+margin-top:5px;
+margin-right:-10px;
+border-color:transparent transparent transparent #ccc;
+border-style:solid;
+border-width:5px 0 5px 5px;
+}
+
+.dropdown-submenu:hover>a:after {
+border-left-color:#fff;
+}
+
+.dropdown-submenu.pull-left {
+float:none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+left:-100%;
+margin-left:10px;
+-webkit-border-radius:6px 0 6px 6px;
+-moz-border-radius:6px 0 6px 6px;
+border-radius:6px 0 6px 6px;
 }
