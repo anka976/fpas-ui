@@ -16,10 +16,11 @@ angular.module('fpasUiApp')
 		// 	}
 		// }
 
+		$scope.predicate = 'creationDate';
 
 		$scope.totalItems = 0;
 		$scope.currentPage = 1;
-		$scope.numPerPage = 7;
+		$scope.numPerPage = 9;
 		var begin = ($scope.currentPage - 1) * $scope.numPerPage;
 		var end = begin + $scope.numPerPage;
 

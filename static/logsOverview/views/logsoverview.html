@@ -7,15 +7,15 @@
         <thead>
         <tr>
           <th>Action</th>
-          <th>ID</th>
-          <th>Module</th>
-          <th>Denotation</th>
-          <th>Message type</th>
-          <th>Creation date</th>
+          <th><a href="" ng-click="predicate = 'rowguid'; reverse=!reverse">ID<span class="pull-right" ng-show="predicate=='rowguid'"><small><span class="glyphicon glyphicon-arrow-up" ng-show="!reverse"></span><span class="glyphicon glyphicon-arrow-down" ng-show="reverse"></span></small></span></a></th>
+          <th><a href="" ng-click="predicate = 'module'; reverse=!reverse">Module<span class="pull-right" ng-show="predicate=='module'"><small><span class="glyphicon glyphicon-arrow-up" ng-show="!reverse"></span><span class="glyphicon glyphicon-arrow-down" ng-show="reverse"></span></small></span></a></th>
+          <th><a href="" ng-click="predicate = 'denotation'; reverse=!reverse">Denotation<span class="pull-right" ng-show="predicate=='denotation'"><small><span class="glyphicon glyphicon-arrow-up" ng-show="!reverse"></span><span class="glyphicon glyphicon-arrow-down" ng-show="reverse"></span></small></span></a></th>
+          <th><a href="" ng-click="predicate = 'messageType'; reverse=!reverse">Message type<span class="pull-right" ng-show="predicate=='messageType'"><small><span class="glyphicon glyphicon-arrow-up" ng-show="!reverse"></span><span class="glyphicon glyphicon-arrow-down" ng-show="reverse"></span></small></span></a></th>
+          <th><a href="" ng-click="predicate = 'creationDate'; reverse=!reverse">Creation date<span class="pull-right" ng-show="predicate=='creationDate'"><small><span class="glyphicon glyphicon-arrow-up" ng-show="!reverse"></span><span class="glyphicon glyphicon-arrow-down" ng-show="reverse"></span></small></span></a></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in filteredLogs">
+        <tr ng-repeat="item in filteredLogs | orderBy:predicate:reverse">
           <td></td>
           <td>{{item.rowguid}}</td>
           <td>{{item.module}}</td>
