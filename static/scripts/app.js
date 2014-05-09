@@ -5,7 +5,9 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute', 'restangular', 'ui.bootstrap'
+    'ngRoute', 
+    'restangular', 
+    'ui.bootstrap'
   ])
   .config(function($routeProvider, $locationProvider) {
 
@@ -19,6 +21,10 @@ angular
       .when(BASE_URL + '/logsoverview', {
         templateUrl: BASE_URL + '/logsOverview/views/logsoverview.html',
         controller: 'LogsoverviewCtrl'
+      })
+      .when(BASE_URL + '/administration', {
+        templateUrl: BASE_URL + 'administration/views/administration.html',
+        controller: 'AdministrationCtrl'
       })
       .otherwise({
         redirectTo: BASE_URL + '/'

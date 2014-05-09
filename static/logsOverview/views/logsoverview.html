@@ -1,4 +1,4 @@
-<p>This is the LOGS view.</p>
+<p>This is the LOGS view with paging.</p>
 
     <div  class="table-responsive">
               
@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in logs">
+        <tr ng-repeat="item in filteredLogs">
           <td></td>
           <td>{{item.rowguid}}</td>
           <td>{{item.module}}</td>
@@ -24,5 +24,12 @@
           <td>{{item.creationDate}}</td>
         </tr>
         </tbody>
+        
       </table>
-        </div>
+  
+      <div class="hidden-xs">
+        <pagination direction-links="true" items-per-page="numPerPage" boundary-links="true" total-items="totalItems" ng-model="currentPage"></pagination>
+      </div>
+
+      <div class="visible-xs"><pager total-items="totalItems" items-per-page="numPerPage"  ng-model="currentPage"></pager></div>
+   
